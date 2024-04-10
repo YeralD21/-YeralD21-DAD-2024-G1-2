@@ -16,6 +16,6 @@ public interface clientService {
 
     clients update(clients client);
 
-    void delete(Integer id);
+        void delete(Integer id);
 
 }
