@@ -1,6 +1,9 @@
 package com.example.mspedido.service.impl;
 
 import com.example.mspedido.entity.Pedido;
+import com.example.mspedido.entity.PedidoDetalle;
+import com.example.mspedido.feing.ClienteFeing;
+import com.example.mspedido.feing.ProductoFeing;
 import com.example.mspedido.repository.PedidoRepository;
 import com.example.mspedido.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,12 @@ import java.util.List;
 public class PedidoServiceImpl implements PedidoService {
     @Autowired
     private PedidoRepository pedidoRepository;
+
+    @Autowired
+    private ClienteFeing clienteFeing;
+
+    @Autowired
+    private ProductoFeing productoFeing;
     @Override
     public List<Pedido> listar() {
         return pedidoRepository.findAll();
@@ -23,7 +32,21 @@ public class PedidoServiceImpl implements PedidoService {
 
     @Override
     public Pedido buscarPorId(Integer id) {
-        return pedidoRepository.findById(id).get();
+
+        Pedido pedido = pedidoRepository.findById(id).get();
+        pedido.setClienteDto(clienteFeing.findById(pedido.getClienteId()).getBody());
+
+        /*for (PedidoDetalle pedidoDetalle : pedido.getDetalle()){
+            pedidoDetalle.setProducto(productoFeing.buscarPorId(pedidoDetalle))
+        }*/
+
+        List<PedidoDetalle> pedidoDetalles=pedido.getDetalle().stream().map(pedidoDetalle -> {
+            pedidoDetalle.setProductoDto(productoFeing.buscarPorId(pedidoDetalle.getProductoId()).getBody());
+            return pedidoDetalle;
+        }).toList();
+        pedido.setDetalle(pedidoDetalles);
+
+        return pedido;
     }
 
     @Override
