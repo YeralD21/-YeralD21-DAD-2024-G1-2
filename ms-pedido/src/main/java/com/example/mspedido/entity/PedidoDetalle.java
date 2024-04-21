@@ -22,5 +22,5 @@ public class PedidoDetalle {
     }
 
     @Transient
-    ProductoDto productoDto;
+    ProductoDto producto;
 }

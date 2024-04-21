@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class PedidoServiceImpl implements PedidoService {
     @Autowired
@@ -35,18 +37,16 @@ public class PedidoServiceImpl implements PedidoService {
 
         Pedido pedido = pedidoRepository.findById(id).get();
         pedido.setClienteDto(clienteFeing.findById(pedido.getClienteId()).getBody());
-
-        /*for (PedidoDetalle pedidoDetalle : pedido.getDetalle()){
-            pedidoDetalle.setProducto(productoFeing.buscarPorId(pedidoDetalle))
+        /*for (PedidoDetalle pedidoDetalle: pedido.getDetalle()){
+            pedidoDetalle.setProducto(productoFeing.buscarPorId(pedidoDetalle.getProductoId()).getBody());
         }*/
 
-        List<PedidoDetalle> pedidoDetalles=pedido.getDetalle().stream().map(pedidoDetalle -> {
-            pedidoDetalle.setProductoDto(productoFeing.buscarPorId(pedidoDetalle.getProductoId()).getBody());
+        List<PedidoDetalle> pedidoDetalles = pedido.getDetalle().stream().map(pedidoDetalle -> {
+            pedidoDetalle.setProducto(productoFeing.buscarPorId(pedidoDetalle.getProductoId()).getBody());
             return pedidoDetalle;
         }).toList();
         pedido.setDetalle(pedidoDetalles);
-
-        return pedido;
+    return pedido;
     }
 
     @Override
