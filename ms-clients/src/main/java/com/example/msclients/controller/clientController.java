@@ -16,19 +16,19 @@ public class clientController {
     private clientService clientService;
 
     @GetMapping
-    ResponseEntity<List<clients>> list() { return ResponseEntity.ok(clientService.list()); }
+    public ResponseEntity<List<clients>> list() { return ResponseEntity.ok(clientService.list()); }
     @PostMapping
-    ResponseEntity<clients> save(@RequestBody clients client){
+    public ResponseEntity<clients> save(@RequestBody clients client){
         return ResponseEntity.ok(clientService.save(client));
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<clients> findById(@PathVariable(required = true) Integer id){
+    public ResponseEntity<clients> findById(@PathVariable(required = true) Integer id){
         return ResponseEntity.ok(clientService.findById(id).get());
     }
 
     @PutMapping("/{id}")
-    ResponseEntity<clients> update(@PathVariable(required = true) Integer id,
+    public ResponseEntity<clients> update(@PathVariable(required = true) Integer id,
                                     @RequestBody clients client){
         client.setId(id);
         return ResponseEntity.ok(clientService.update(client));
