@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface ProductoFeing {
 
     @GetMapping("/{id}")
-    @CircuitBreaker(name = "productoListarPorIdCB", fallbackMethod = "fallbackProductoPorId ")
+    @CircuitBreaker(name = "productoListarPorIdCB", fallbackMethod = "fallbackProductoPorId")
     public ResponseEntity<ProductoDto> buscarPorId(@PathVariable(required = true) Integer id);
     default ResponseEntity<ProductoDto> fallbackProductoPorId(Integer id, Exception e) {
         return ResponseEntity.ok(new ProductoDto());
