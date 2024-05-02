@@ -12,8 +12,7 @@ public interface ClienteFeing {
 
     @GetMapping("/{id}")
     @CircuitBreaker(name = "clienteListarPorIdCB", fallbackMethod = "fallbackClientePorId ")
-    ResponseEntity<ClienteDto> findById(@PathVariable(required = true) Integer id);
-
+    public ResponseEntity<ClienteDto> findById(@PathVariable(required = true) Integer id);
     default ResponseEntity<ClienteDto> fallbackClientePorId(Integer id, Exception e) {
 
         return ResponseEntity.ok(new ClienteDto());
