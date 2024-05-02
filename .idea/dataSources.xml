@@ -25,7 +25,7 @@
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="ms-pedido@localhost" uuid="672d9f67-c8d6-47fd-aa82-1ae623938f6d">
+    <data-source source="LOCAL" name="ms-pedido@localhost" uuid="fe897afe-39ea-4ac6-b016-32a275fb0fee">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>

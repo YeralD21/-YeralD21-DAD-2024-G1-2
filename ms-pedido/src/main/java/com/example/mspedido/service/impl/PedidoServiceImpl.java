@@ -41,11 +41,11 @@ public class PedidoServiceImpl implements PedidoService {
             pedidoDetalle.setProducto(productoFeing.buscarPorId(pedidoDetalle.getProductoId()).getBody());
         }*/
 
-        List<PedidoDetalle> pedidoDetalles = pedido.getDetalle().stream().map(pedidoDetalle -> {
+        List<PedidoDetalle> pedidoDetalles = pedido.getDetalles().stream().map(pedidoDetalle -> {
             pedidoDetalle.setProducto(productoFeing.buscarPorId(pedidoDetalle.getProductoId()).getBody());
             return pedidoDetalle;
         }).toList();
-        pedido.setDetalle(pedidoDetalles);
+        pedido.setDetalles(pedidoDetalles);
     return pedido;
     }
 
