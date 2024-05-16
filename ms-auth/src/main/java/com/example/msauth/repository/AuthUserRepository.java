@@ -10,4 +10,3 @@ public interface AuthUserRepository extends JpaRepository<AuthUser, Integer> {
 
     Optional<AuthUser> findByUserName(String username);
 }
- 
