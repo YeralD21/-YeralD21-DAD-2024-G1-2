@@ -81,11 +81,11 @@ export class ClientNewComponent implements OnInit {
     abcForms: any;
     clientForm = new FormGroup({
 
-        nombre: new FormControl('', [Validators.required]),
-        apellidos: new FormControl('', [Validators.required]),
-        dni: new FormControl('', [Validators.required]),
-        telefono: new FormControl('', [Validators.required]),
-        correo: new FormControl('', [Validators.required]),
+        name: new FormControl('', [Validators.required]),
+        adress: new FormControl('', [Validators.required]),
+        age: new FormControl('', [Validators.required]),
+        gender: new FormControl('', [Validators.required]),
+        email: new FormControl('', [Validators.required]),
     });
 
     constructor(private _matDialog: MatDialogRef<ClientNewComponent>) {}

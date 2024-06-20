@@ -31,7 +31,7 @@ import { MatDialog } from '@angular/material/dialog';
                             <tr>
                                 <th class="w-1/6 table-head text-center px-5 border-r">#</th>
                                 <th class="w-2/6 table-header text-center px-5 border-r">
-                                    Nombre
+                                    name
                                 </th>
                                 <th class="w-2/6 table-header text-center px-5 border-r">
                                     adress
@@ -39,12 +39,19 @@ import { MatDialog } from '@angular/material/dialog';
                                 <th class="w-2/6 table-header text-center px-5 border-r">
                                     age
                                 </th>
+                                <th class="w-2/6 table-header text-center">
+                                    gender
+                                </th>
+                                <th class="w-2/6 table-header text-center">
+                                    email
+                                </th>
                                 <th class="w-1/6 table-header text-center border-r">
                                     Estado
                                 </th>
                                 <th class="w-2/6 table-header text-center">
                                     Acciones
                                 </th>
+
                             </tr>
                         </thead>
                         <tbody
@@ -56,6 +63,9 @@ import { MatDialog } from '@angular/material/dialog';
                                 </td>
                                 <td class="w-2/6 p-2  text-start border-b text-sm">
                                     {{ r.nombre }}
+                                </td>
+                                <td class="w-2/6 p-2  text-start border-b text-sm">
+                                    {{ r.adress }}
                                 </td>
 
                                 <td class="w-1/6 p-2 text-center border-b text-sm">
