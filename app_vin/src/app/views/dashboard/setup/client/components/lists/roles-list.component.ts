@@ -33,6 +33,12 @@ import { MatDialog } from '@angular/material/dialog';
                                 <th class="w-2/6 table-header text-center px-5 border-r">
                                     Nombre
                                 </th>
+                                <th class="w-2/6 table-header text-center px-5 border-r">
+                                    adress
+                                </th>
+                                <th class="w-2/6 table-header text-center px-5 border-r">
+                                    age
+                                </th>
                                 <th class="w-1/6 table-header text-center border-r">
                                     Estado
                                 </th>
@@ -51,6 +57,7 @@ import { MatDialog } from '@angular/material/dialog';
                                 <td class="w-2/6 p-2  text-start border-b text-sm">
                                     {{ r.nombre }}
                                 </td>
+
                                 <td class="w-1/6 p-2 text-center border-b text-sm">
                                     <div
                                         class="relative grid items-center font-sans font-bold uppercase whitespace-nowrap select-none bg-green-500/20 text-green-600 py-1 px-2 text-xs rounded-md"
