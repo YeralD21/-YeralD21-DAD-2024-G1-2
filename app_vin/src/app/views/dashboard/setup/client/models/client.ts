@@ -1,9 +1,9 @@
 export class Client {
 
     id?: number;
-    name?: string;
-    adress?: string;
-    age?: string;
-    gender?: string;
-    email?: string;
+    nombre?: string;
+    apellidos?: string;
+    dni?: string;
+    telefono?: string;
+    correo?: string;
 }
